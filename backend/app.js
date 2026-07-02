@@ -14,6 +14,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
 // Health Check Route
 app.use('/api/health', async (req, res) => {
   const { pool } = require('./config/db');
